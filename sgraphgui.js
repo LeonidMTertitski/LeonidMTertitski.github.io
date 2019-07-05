@@ -146,7 +146,7 @@ function sgraphgui() {
         var result = null;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = historyDataLoaded;
-        xmlhttp.open("GET", filePath);
+        xmlhttp.open("GET", "/" + filePath, true);
         xmlhttp.send();
 //        alert("status = " + xmlhttp.status + " length = " + xmlhttp.responseText.length);
     }
