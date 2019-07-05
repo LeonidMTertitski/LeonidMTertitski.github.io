@@ -152,12 +152,10 @@ function sgraphgui() {
 //        alert("status = " + xmlhttp.status + " length = " + xmlhttp.responseText.length);
     }
     function historyDataLoaded() {
-        if (this.status == 200 &&
-            this.responseXML != null && this.responseText) {
+        if (this.status == 200 && this.responseText) {
             m_sgraph.histDataToTable(strHistData);
             showSGraph();
         } else {
-            alert("status = " + this.status + " length = " + this.responseText.length);
             document.body.innerHTML = this.responseText;
         }
     }
