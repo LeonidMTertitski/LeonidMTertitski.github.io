@@ -153,7 +153,7 @@ function sgraphgui() {
     }
     function historyDataLoaded() {
         if (this.status == 200 && this.responseText) {
-            m_sgraph.histDataToTable(strHistData);
+            m_sgraph.histDataToTable(this.responseText);
             showSGraph();
         } else {
             document.body.innerHTML = this.responseText;
