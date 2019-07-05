@@ -132,9 +132,9 @@ function sgraphgui() {
         drawFavicon();
 
         if (localStorage && m_sgraph) {
-            let strHistData = null;//localStorage.getItem("sg_historical_data");
+            let strHistData = localStorage.getItem("sg_historical_data");
             if (!strHistData) {
-                strHistData = loadFile("TEST.csv");              
+                loadFile("TEST.csv");              
             }
             else {
                 m_sgraph.histDataToTable(strHistData);
@@ -143,13 +143,11 @@ function sgraphgui() {
         }
     }
     function loadFile(filePath) {
-        var result = null;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = historyDataLoaded;
         xmlhttp.open("GET", filePath, true);
         xmlhttp.setRequestHeader("Content-Type", "text/html");
         xmlhttp.send();
-//        alert("status = " + xmlhttp.status + " length = " + xmlhttp.responseText.length);
     }
     function historyDataLoaded() {
         if (this.status == 200 && this.responseText) {
