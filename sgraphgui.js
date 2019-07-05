@@ -132,8 +132,8 @@ function sgraphgui() {
         drawFavicon();
 
         if (localStorage && m_sgraph) {
-            let strHistData = localStorage.getItem("sg_historical_data");
-            let strHistName = localStorage.getItem("sg_historical_name");
+            let strHistData = localStorage.getItem("sg_hist_data");
+            let strHistName = localStorage.getItem("sg_hist_name");
             if (!strHistData || !strHistName) {
                 loadFile("TEST.csv");              
             }
@@ -538,7 +538,7 @@ function sgraphgui() {
         let fileName = document.getElementById("sg_filename");
         if (result && fileName && m_sgraph && m_sgraph.m_nData > 0) {
             if (localStorage != undefined) {
-                localStorage.setItem("sg_historical_name", fileName.innerHTML);
+                localStorage.setItem("sg_hist_name", fileName.innerHTML);
             }
             let resultTxt = fileName.innerText;
             let iStart = Math.floor(m_sgraph.m_Start);
