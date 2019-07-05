@@ -146,7 +146,8 @@ function sgraphgui() {
         var result = null;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = historyDataLoaded;
-        xmlhttp.open("GET", "https://LeonidMTertitski.github.io/" + filePath, true);
+        xmlhttp.open("GET", filePath, true);
+        xmlhttp.setRequestHeader("Content-Type", "text/html");
         xmlhttp.send();
 //        alert("status = " + xmlhttp.status + " length = " + xmlhttp.responseText.length);
     }
@@ -157,6 +158,7 @@ function sgraphgui() {
             showSGraph();
         } else {
             alert("status = " + this.status + " length = " + this.responseText.length);
+            body.innerHTML = this.responseText;
         }
     }
 
