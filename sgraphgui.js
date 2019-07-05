@@ -133,10 +133,12 @@ function sgraphgui() {
 
         if (localStorage && m_sgraph) {
             let strHistData = localStorage.getItem("sg_historical_data");
-            if (!strHistData) {
+            let strHistName = localStorage.getItem("sg_historical_name");
+            if (!strHistData || !strHistName) {
                 loadFile("TEST.csv");              
             }
             else {
+                document.getElementById("sg_filename").innerText = strHistName;
                 m_sgraph.histDataToTable(strHistData);
                 showSGraph();
             }
