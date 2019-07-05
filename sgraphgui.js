@@ -134,9 +134,9 @@ function sgraphgui() {
         if (localStorage && m_sgraph) {
             let strHistData = null;//localStorage.getItem("sg_historical_data");
             if (!strHistData) {
-                strHistData = loadFile("Test.csv")                
+                strHistData = loadFile("Test.csv");              
             }
-            if (strHistData) {
+            else {
                 m_sgraph.histDataToTable(strHistData);
                 showSGraph();
             }
@@ -145,13 +145,21 @@ function sgraphgui() {
     function loadFile(filePath) {
         var result = null;
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", filePath, false);
+        xmlhttp.onload = historyDataLoaded;
+        xmlhttp.open("GET", "http://" + filePath);
         xmlhttp.send();
-        if (xmlhttp.status == 200) {
-            result = xmlhttp.responseText;
-        }
-        return result;
+//        alert("status = " + xmlhttp.status + " length = " + xmlhttp.responseText.length);
     }
+    function historyDataLoaded() {
+        if (this.status == 200 &&
+            this.responseXML != null && this.responseText) {
+            m_sgraph.histDataToTable(strHistData);
+            showSGraph();
+        } else {
+            alert("status = " + this.status + " length = " + this.responseText.length);
+        }
+    }
+
     function getMouseX(e) {
         return (m_TouchScreen && e.touches) ? e.touches[0].clientX : e.clientX;
     }
