@@ -134,7 +134,7 @@ function sgraphgui() {
         if (localStorage && m_sgraph) {
             let strHistData = null;//localStorage.getItem("sg_historical_data");
             if (!strHistData) {
-                strHistData = loadFile("Test.csv");              
+                strHistData = loadFile("TEST.csv");              
             }
             else {
                 m_sgraph.histDataToTable(strHistData);
