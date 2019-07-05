@@ -132,12 +132,25 @@ function sgraphgui() {
         drawFavicon();
 
         if (localStorage && m_sgraph) {
-            let strHistData = localStorage.getItem("sg_historical_data");
+            let strHistData = null;//localStorage.getItem("sg_historical_data");
+            if (!strHistData) {
+                strHistData = loadFile("Test.csv")                
+            }
             if (strHistData) {
                 m_sgraph.histDataToTable(strHistData);
                 showSGraph();
             }
         }
+    }
+    function loadFile(filePath) {
+        var result = null;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", filePath, false);
+        xmlhttp.send();
+        if (xmlhttp.status == 200) {
+            result = xmlhttp.responseText;
+        }
+        return result;
     }
     function getMouseX(e) {
         return (m_TouchScreen && e.touches) ? e.touches[0].clientX : e.clientX;
