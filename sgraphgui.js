@@ -146,7 +146,7 @@ function sgraphgui() {
         var result = null;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = historyDataLoaded;
-        xmlhttp.open("GET", "https://LeonidMTertitsky.github.io/" + filePath, true);
+        xmlhttp.open("GET", "https://LeonidMTertitski.github.io/" + filePath, true);
         xmlhttp.send();
 //        alert("status = " + xmlhttp.status + " length = " + xmlhttp.responseText.length);
     }
