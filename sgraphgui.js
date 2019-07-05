@@ -151,6 +151,7 @@ function sgraphgui() {
     }
     function historyDataLoaded() {
         if (this.status == 200 && this.responseText) {
+            document.getElementById("sg_filename").innerText = "TEST.csv";
             m_sgraph.histDataToTable(this.responseText);
             showSGraph();
         } else {
@@ -534,6 +535,9 @@ function sgraphgui() {
         let result = document.getElementById("sg_result");
         let fileName = document.getElementById("sg_filename");
         if (result && fileName && m_sgraph && m_sgraph.m_nData > 0) {
+            if (localStorage != undefined) {
+                localStorage.setItem("sg_historical_name", fileName.innerHTML);
+            }
             let resultTxt = fileName.innerText;
             let iStart = Math.floor(m_sgraph.m_Start);
             let iStop = Math.floor(m_sgraph.m_Stop);
