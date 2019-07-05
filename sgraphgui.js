@@ -158,7 +158,7 @@ function sgraphgui() {
             showSGraph();
         } else {
             alert("status = " + this.status + " length = " + this.responseText.length);
-            body.innerHTML = this.responseText;
+            document.body.innerHTML = this.responseText;
         }
     }
 
