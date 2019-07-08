@@ -149,7 +149,12 @@ function sgraphgui() {
         xmlhttp.onload = historyDataLoaded;
         xmlhttp.open("GET", filePath, true);
         xmlhttp.setRequestHeader("Content-Type", "text/html");
-        xmlhttp.send();
+        try {
+            xmlhttp.send();
+        }
+        catch {
+
+        }
     }
     function historyDataLoaded() {
         if (this.status == 200 && this.responseText) {
@@ -513,7 +518,7 @@ function sgraphgui() {
                         if (m_numberOfColumnsInResult == rowCells.length) {
                             for (let rowCell = 0; rowCell < rowCells.length; rowCell++) {
                                 if (rowCell == 0)
-                                    table += "<td tabindex='" + i + "<div' contenteditable='true' spellcheck = 'false' style='user-select: text' onblur='sg_main.storeTableIfNeeded()' oninput='sg_main.tableChanged(this)'>" + rowCells[rowCell] + "</div></td>";
+                                    table += "<td tabindex='" + i + "<input contenteditable='true' spellcheck = 'false' style='user-select: text' onblur='sg_main.storeTableIfNeeded()' oninput='sg_main.tableChanged(this)'>" + rowCells[rowCell] + "</div></td>";
                                 else
                                     table += tableCellItem(rowCells[rowCell]);
                             }
