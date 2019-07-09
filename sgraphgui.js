@@ -103,7 +103,7 @@ function sgraphgui() {
         m_mousedownEvent = m_TouchScreen ? 'touchstart' : 'mousedown';
         m_cnv = document.getElementById('sg_canvas');
         m_ctx = m_cnv.getContext('2d');
-        !localStorage && (l = location, p = l.pathname.replace(/(^..)(:)/, "$1$$"), (l.href = l.protocol + "//127.0.0.1" + p));
+        //!localStorage && (l = location, p = l.pathname.replace(/(^..)(:)/, "$1$$"), (l.href = l.protocol + "//127.0.0.1" + p));
         // add mouse click listener to graphic area
         if (m_cnv) {
             m_cnv.addEventListener("click", mouseOnGraphClick, false);
@@ -145,6 +145,16 @@ function sgraphgui() {
         }
     }
     function loadFile(filePath) {
+        try {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onload = historyDataLoaded;
+            xmlhttp.open("GET", filePath, true);
+            xmlhttp.setRequestHeader("Content-Type", "text/html");
+            xmlhttp.send();
+        }
+        catch (e) {
+
+        }
     }
     function historyDataLoaded() {
         if (this.status == 200 && this.responseText) {
