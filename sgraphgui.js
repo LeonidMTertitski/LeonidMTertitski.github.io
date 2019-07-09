@@ -1009,14 +1009,6 @@ function sgraphgui() {
         else
             ind = pid;
         let params = getParamsWindowByInd(ind);
-        /*
-        if (parseInt(params.style.zIndex) != m_zIndexParamsMax && elem.endsWith("_div"))
-            paramsWindowToTop(ind);
-        else {
-            let op = params.style.opacity;
-            params.style.opacity = (!op) ? 0.6 : (op > 0.4) ? op - 0.4 : 1.0;
-        }
-        */
         params.style.display = "none";
         m_showParamWindow[ind - 1] = false;
         saveParamsWindowPos(ind)
