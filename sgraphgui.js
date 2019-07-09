@@ -145,16 +145,6 @@ function sgraphgui() {
         }
     }
     function loadFile(filePath) {
-        try {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onload = historyDataLoaded;
-            xmlhttp.open("GET", filePath, true);
-            xmlhttp.setRequestHeader("Content-Type", "text/html");
-            xmlhttp.send();
-        }
-        catch (e) {
-
-        }
     }
     function historyDataLoaded() {
         if (this.status == 200 && this.responseText) {
