@@ -1,7 +1,7 @@
 # market-color-map
 This SW creates and display color-map of the historical market prices correlation:
 Use WEB site https://leonidmtertitski.github.io/ or 
-Copy all files to a local folder and then open index.html with Google Chrome.
+copy all files to a local folder and then open index.html with Google Chrome.
 When you start it first time from local folder you need to use "Choose a file..." button and select local csv file with Open, High, Low and Close values (you can use provided TEST.csv file as example).
 You can select your own csv file with historical Open, High, Low, Close data: use Yahoo (https://help.yahoo.com/kb/SLN2311.html) to download historical data.
 SGraph calculates correlation and potential profit (for one market share) by using correlation, historical data and the following strategy: 
