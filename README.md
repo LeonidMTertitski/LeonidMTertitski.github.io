@@ -1,4 +1,7 @@
 # market-color-map
+New: Option to use GPU for calculation acceleration.
+
+
 This SW creates and displays a colormap of the historical market prices autocorrelation-
 
 
