@@ -1,5 +1,5 @@
 # market-color-map
-New: Option to use GPU (https://github.com/gpujs/gpu.js) for GPU acceleration (during optimization).
+New: Option to use GPU (https://github.com/gpujs/gpu.js) for GPU autocorrelation acceleration (during optimization).
 
 
 This SW creates and displays a colormap of the historical market prices autocorrelation-
